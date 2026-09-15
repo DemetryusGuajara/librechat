@@ -1,7 +1,9 @@
 schemaVersion: 1.2
 endpoints:
   - name: librechat-ui
-    port: 3080
+    displayName: LibreChat UI
+    service:
+      basePath: /
+      port: 3080
     type: REST
     networkVisibility: Public
-    context: /
