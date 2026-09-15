@@ -15,4 +15,4 @@ EXPOSE 3080
 
 USER 10001
 
-CMD ["npm", "run", "backend"]
+CMD ["node", "api/server/index.js"]
