@@ -1,5 +1,9 @@
 version: 1.1.5
 cache: true
+
+# Ativa o armazenamento externo no bucket R2
+fileStrategy: "s3"
+
 endpoints:
   custom:
     - name: "NVIDIA NIM"
