@@ -1,0 +1,7 @@
+version: 0.1
+endpoints:
+  - name: librechat-ui
+    port: 3080
+    type: REST
+    networkVisibility: Public
+    context: /
