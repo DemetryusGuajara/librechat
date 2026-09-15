@@ -1,0 +1,17 @@
+version: 1.1.5
+cache: true
+endpoints:
+  custom:
+    - name: "NVIDIA NIM"
+      apiKey: "${NVIDIA_API_KEY}"
+      baseURL: "https://integrate.api.nvidia.com/v1"
+      models:
+        default: [
+          "meta/llama3-70b-instruct",
+          "meta/llama3-8b-instruct",
+          "mistralai/mixtral-8x22b-instruct-v0.1"
+        ]
+        fetch: true
+      titleModel: "meta/llama3-8b-instruct"
+      modelDisplayLabel: "NVIDIA NIM"
+      iconURL: "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg"
