@@ -2,15 +2,13 @@ FROM ghcr.io/danny-avila/librechat:latest
 
 USER root
 
-# Copia sua configuração personalizada com Gemini e NVIDIA
+# Copia sua configuração personalizada
 COPY librechat.yaml /app/librechat.yaml
 
-# Atualiza a biblioteca
-RUN cd /app && npm install websocket-driver@0.7.5 --save || true
-
-# O Choreo EXIGE um UID numérico entre 10000 e 20000.
-# Damos a posse da pasta /app para o usuário 10001 (incluindo o que acabou de ser instalado)
-RUN chown -R 10001:10001 /app
+# Damos permissão APENAS nas pastas onde o app realmente precisa gravar dados.
+# Isso roda em 0.2 segundos em vez de 15 minutos!
+RUN mkdir -p /app/api/logs /app/uploads /app/client/public/images && \
+    chown -R 10001:10001 /app/api/logs /app/uploads /app/client/public/images /app/librechat.yaml
 
 ENV HOST=0.0.0.0
 ENV PORT=3080
